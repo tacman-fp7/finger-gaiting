@@ -1,0 +1,17 @@
+<launch>
+
+	<arg name="gui" default="False" />
+	<param name="use_gui" value="$(arg gui)"/>
+
+	<param name="/robot_description" textfile="$(find allegro_hand_description)/allegro_hand_description_right_vrep.urdf"/>
+	<param name="/allegroHand/robot_description" textfile="$(find allegro_hand_description)/allegro_hand_description_right_vrep.urdf"/>
+
+	<node name="joint_gui" pkg="joint_state_publisher_experimental" type="joint_state_publisher" if="$(arg gui)">
+    	<remap from="/joint_states" to="/allegroHand/joint_cmd"/>
+	</node>
+
+	<node name="keyboard" pkg="allegro_hand_keyboard" type="allegro_hand_keyboard"> </node>
+
+	<node name="vrepWrapper" pkg="allegro_hand_core_pd" type="allegroVrep" output="screen"> </node>
+
+</launch>
