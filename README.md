@@ -8,3 +8,4 @@ This module provides code for Task 3-2 of the TACMAN project. The robot learns t
 [V-REP](http://www.coppeliarobotics.com/)
 
 ## File Descriptions
+[matlab/AllegroScript.m] test
